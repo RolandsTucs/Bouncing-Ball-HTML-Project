@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #bumba {
+        width: 80px;
+        height: 80px;
+        background: red;
+        border-radius: 40px;
+        box-shadow: inset -10px -10px 10px rgba(0, 0, 0, 0.5);
+        position: absolute;
+        left: 100px;
+        top: 100px;
+      }
+    </style>
+    <script>
+      let x = 100;
+      let y = 100;
+      let atrumsy = 0;
+      let atrumsx = 10;
+
+      function cikls() {
+        $("#bumba").css({ top: y, left: x });
+        y += atrumsy;
+
+        if (y > window.innerHeight - 80) atrumsy = -atrumsy;
+        else atrumsy++;
+
+        x += atrumsx;
+
+        if (x > window.innerWidth - 80) atrumsx = -atrumsx;
+
+        if (x < 0) atrumsx = -atrumsx;
+      }
+
+      setInterval(cikls, 30);
+    </script>
+  </head>
+  <body>
+    <div id="bumba"></div>
+  </body>
+</html>
