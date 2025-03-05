@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Added jQuery -->
     <style>
       #bumba {
         width: 80px;
@@ -20,7 +22,7 @@
       let atrumsx = 10;
 
       function cikls() {
-        $("#bumba").css({ top: y, left: x });
+        $("#bumba").css({ top: y, left: x }); // Works now with jQuery
         y += atrumsy;
 
         if (y > window.innerHeight - 80) atrumsy = -atrumsy;
@@ -29,11 +31,13 @@
         x += atrumsx;
 
         if (x > window.innerWidth - 80) atrumsx = -atrumsx;
-
         if (x < 0) atrumsx = -atrumsx;
       }
 
-      setInterval(cikls, 30);
+      $(document).ready(function () {
+        // Ensures script runs after DOM is loaded
+        setInterval(cikls, 30);
+      });
     </script>
   </head>
   <body>
